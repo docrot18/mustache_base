@@ -20,32 +20,28 @@ $mustache = new Mustache_Engine([
 <body>
     <?
         $cards = [
-            [
-                'title' => 'Карточка 1',
-                'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi iste perferendis officia commodi cum quos numquam cumque modi enim fuga ratione, labore, quidem provident nam exercitationem? Est blanditiis inventore corrupti?',
-                'date' => '14 января 2021'
-            ],
-            [
-                'title' => 'Карточка 2',
-                'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi iste perferendis officia commodi cum quos numquam cumque modi enim fuga ratione, labore, quidem provident nam exercitationem? Est blanditiis inventore corrupti?',
-                'date' => '18 января 2021'
-            ],
-            [
-                'title' => 'Карточка 3',
-                'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi iste perferendis officia commodi cum quos numquam cumque modi enim fuga ratione, labore, quidem provident nam exercitationem? Est blanditiis inventore corrupti?',
-                'date' => '20 января 2021'
-            ],
+            'commonTitle' => 'Общий <br>заголовок',
+            'title' => 'Второй общий заголовок',
+            'cards' => [
+                [
+                    'title' => 'Карточка 1',
+                    'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi iste perferendis officia commodi cum quos numquam cumque modi enim fuga ratione, labore, quidem provident nam exercitationem? Est blanditiis inventore corrupti?',
+                    'date' => '14 января 2021',
+                    'image' => 'person.png'
+                ],
+                [
+                    'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi iste perferendis officia commodi cum quos numquam cumque modi enim fuga ratione, labore, quidem provident nam exercitationem? Est blanditiis inventore corrupti?',
+                    'date' => '18 января 2021'
+                ],
+                [
+                    'title' => 'Карточка 3',
+                    'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi iste perferendis officia commodi cum quos numquam cumque modi enim fuga ratione, labore, quidem provident nam exercitationem? Est blanditiis inventore corrupti?',
+                    'date' => '20 января 2021',
+                    'image' => 'person.jpg'
+                ],
+            ]
         ];
     ?>
-
-    <div class="cards-list">
-    <?foreach ($cards as $card):?>
-        <div class="card">
-            <div class="card__title"><?=$card['title']?></div>
-            <div class="card__description"><?=$card['description']?></div>
-            <div class="card__date"><?=$card['date']?></div>
-        </div>
-    <?endforeach?>
-    </div>
+    <? echo $mustache -> render('cards-list', $cards)?>
 </body>
 </html>
